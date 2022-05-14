@@ -1,0 +1,27 @@
+version: "3.3"
+
+services:
+  celery_s:
+    image: celery_s
+    container_name: celery_s
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - CELERY_BROKER_URL=redis://host.docker.internal:6379/0
+      - CELERY_BROKER_BACKEND=redis://host.docker.internal:6379/0
+      - MAX_WORKERS=5
+      - REDIS_HOST=host.docker.internal
+      - MONGO_DBNAME=mal
+      - MONGO_HOST=10.112.254.160
+      - MONGO_PORT=27018
+      - MONGO_USERNAME=mongoadmin
+      - MONGO_PASSWORD=mongoadmin
+      - MONGO_AUTHDB=admin
+      - NEO4J_URL=http://10.112.254.160:7475
+      - NEO4J_USERNAME=neo4j
+      - NEO4J_PASSWORD=daxiahyh
+      - CUCKOO_URL=http://10.112.254.160:8000
+      - CUCKOO_TOKEN="Bearer PYK9j3-G4zyScn4EDW3eKg"
+    volumes:
+      - /tmp/app:/tmp

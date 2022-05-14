@@ -1,7 +1,7 @@
 import re
 import tempfile
 import time
-from datetime import datetime
+import datetime
 
 import requests
 import os
@@ -70,7 +70,7 @@ def task_failure_handler(sender=None, task_id=None, exception=None, args=None, k
 @app.task
 def submit(f, id):
     """
-    :param f: file path
+    :param f: bytes stream
     :param id: task id
     """
     try:

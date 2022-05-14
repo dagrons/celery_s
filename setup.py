@@ -17,6 +17,7 @@ setup(
         'py2neo==2021.1.5',
         'pymongo==3.11.4',
         'redis==3.5.3',
-        'requests==2.27.1'
+        'requests==2.27.1',
+        'dotenv'
     ]
 )
