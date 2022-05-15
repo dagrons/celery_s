@@ -68,7 +68,7 @@ def task_failure_handler(sender=None, task_id=None, exception=None, args=None, k
 
 
 @app.task
-def submit(f, id):
+def submit(f, id, apt_family):
     """
     :param f: bytes stream
     :param id: task id
@@ -79,6 +79,8 @@ def submit(f, id):
                   auth=(app.config.NEO4J_SETTINGS['username'], app.config.NEO4J_SETTINGS['password']))
 
         res = Feature(task_id=id)
+        if apt_family is not None:
+            res.apt_family = apt_family
         with open(f, 'rb') as fp:
             res.upload.put(fp)
 
