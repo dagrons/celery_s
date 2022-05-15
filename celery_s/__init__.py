@@ -125,6 +125,7 @@ def submit(f, id, apt_family):
 
         # 轮询获取报告
         done = False
+        # import remote_pdb; remote_pdb.RemotePdb('127.0.0.1', 4444).set_trace()
         while not done:
             time.sleep(3)
             r = requests.get(

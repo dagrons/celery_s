@@ -18,6 +18,7 @@ setup(
         'pymongo==3.11.4',
         'redis==3.5.3',
         'requests==2.27.1',
-        'python-dotenv'
+        'python-dotenv',
+        'flower'
     ]
 )
