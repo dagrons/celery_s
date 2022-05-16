@@ -14,6 +14,7 @@ setup(
         'celery==5.1.2',
         'mongoengine==0.23.1',
         'mtools @ git+https://github.com/dagrons/mtools@master',
+        'fcommon @ git+https://github.com/dagrons/fcommon@master',
         'py2neo==2021.1.5',
         'pymongo==3.11.4',
         'redis==3.5.3',

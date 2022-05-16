@@ -7,4 +7,4 @@ redis==3.5.3
 requests==2.27.1
 python-dotenv
 flower
-
+fcommon @ git+https://github.com/dagrons/fcommon@master

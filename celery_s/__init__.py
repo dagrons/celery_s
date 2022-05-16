@@ -15,9 +15,9 @@ from mtools.transform import get_asm_from_bytes, get_bytes_from_file
 from mtools.malware_classification.scripts.transform import pe2bmp
 from mtools.malware_classification.predict import predict as predict_cls
 from mtools.malware_sim.predict import predict as predict_sim
+from models.feature import Info, Static, Target, Behavior, Feature, Local
 
 from .config import config
-from .models.feature import Info, Static, Target, Behavior, Feature, Local
 
 
 def make_app(config_name=None):
