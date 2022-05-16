@@ -11,15 +11,15 @@ setup(
     packages=setuptools.find_packages(),
     include_package_data=True,
     install_requires=[
-        'celery==5.1.2',
-        'mongoengine==0.23.1',
+        'celery',
+        'mongoengine',
         'mtools @ git+https://github.com/dagrons/mtools@master',
         'fcommon @ git+https://github.com/dagrons/fcommon@master',
-        'py2neo==2021.1.5',
-        'pymongo==3.11.4',
-        'redis==3.5.3',
-        'requests==2.27.1',
+        'py2neo',
+        'pymongo',
+        'redis',
+        'requests',
         'python-dotenv',
-        'flower'
+        'flower',
     ]
 )
