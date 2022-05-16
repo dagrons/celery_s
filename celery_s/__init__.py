@@ -1,3 +1,4 @@
+import logging
 import re
 import tempfile
 import time
@@ -73,6 +74,7 @@ def submit(f, id, apt_family):
     :param f: bytes stream
     :param id: task id
     """
+    logging.info("submit get f=%s, id=%s, apt_family=%s" % (f, id, apt_family))
     try:
         connect(**app.config.MONGODB_SETTINGS)
         g = Graph(app.config.NEO4J_SETTINGS['url'],
