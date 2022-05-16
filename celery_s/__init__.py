@@ -114,16 +114,25 @@ def submit(f, id, apt_family):
             t[k] = v
         res.local.malware_classification_resnet34 = t
 
-        # 上传任务到cuckoo
-        file = {"file": (res.task_id, res.upload)}
+        # cuckoo是否已经存在对应报告
         headers = {
             "Authorization": app.config.CUCKOO_TOKEN}
-        r = requests.post(
+        r = requests.get(
             app.config.CUCKOO_URL +
-            '/tasks/create/file',
-            files=file,
+            '/files/view/md5/' + id,
             headers=headers)
-        cuckoo_task_id = str(r.json()['task_id'])
+        if r.status_code == 200:
+            cuckoo_task_id = str(r.json()['sample']['id'])
+        else:
+            file = {"file": (res.task_id, res.upload)} # 上传任务到cuckoo
+            headers = {
+                "Authorization": app.config.CUCKOO_TOKEN}
+            r = requests.post(
+                app.config.CUCKOO_URL +
+                '/tasks/create/file',
+                files=file,
+                headers=headers)
+            cuckoo_task_id = str(r.json()['task_id'])
 
         # 轮询获取报告
         done = False
